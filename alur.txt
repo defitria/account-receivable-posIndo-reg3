@@ -1,0 +1,20 @@
+Alur Manager Penjualan mengedit data:
+- Laporan diterima manajer akuntansi
+- Laporan ternyata tidak valid.
+- Maka backseat di reject.
+- Meminta kembali backseat dari loket.
+- Manajer mengedit data.
+
+Alur Manajer Penjualan menerima dan mengirim laporan:
+- Admin meng-input data
+- Admin mengirim laporan ke manajer penjualan
+- Manajer Penjualan dapat melihat laporan input pada hari itu
+- Manajer Penjualan me-print laporan hari itu untuk di validasi oleh manajer akuntan
+- Setelah data dinyatakan valid oleh manajer akuntan
+- Maka data yg valid dikirim kan ke Manajer Regional
+
+Alur Admin menginput dan mengirim data;
+- Admin menerima data backseat berupa kertas berlubang
+- Admin login ke website
+- Admin meng-input data
+- Admin mengirim laporan data yang terinput pada hari itu ke Manajer Penjualan.
