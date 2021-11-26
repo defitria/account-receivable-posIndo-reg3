@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 10 Des 2020 pada 15.00
--- Versi server: 10.4.11-MariaDB
--- Versi PHP: 7.4.2
+-- Generation Time: Nov 26, 2021 at 05:18 PM
+-- Server version: 10.4.19-MariaDB
+-- PHP Version: 7.3.16
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `dt_piutang`
+-- Table structure for table `dt_piutang`
 --
 
 CREATE TABLE `dt_piutang` (
@@ -44,7 +44,7 @@ CREATE TABLE `dt_piutang` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `dt_piutang`
+-- Dumping data for table `dt_piutang`
 --
 
 INSERT INTO `dt_piutang` (`id`, `nama_upt`, `bisnis`, `nama_pel`, `prod`, `bsu`, `total_piutang`, `pajak`, `saldo_akhir`, `sebulan`, `duabulan`, `tigabulan`, `tgl`) VALUES
@@ -58,7 +58,7 @@ INSERT INTO `dt_piutang` (`id`, `nama_upt`, `bisnis`, `nama_pel`, `prod`, `bsu`,
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `invoice`
+-- Table structure for table `invoice`
 --
 
 CREATE TABLE `invoice` (
@@ -73,7 +73,7 @@ CREATE TABLE `invoice` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `invoice`
+-- Dumping data for table `invoice`
 --
 
 INSERT INTO `invoice` (`id`, `nama_upt`, `nomor`, `lampiran`, `perihal`, `nama_pel`, `status`, `tgl`) VALUES
@@ -85,7 +85,7 @@ INSERT INTO `invoice` (`id`, `nama_upt`, `nomor`, `lampiran`, `perihal`, `nama_p
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `list_upt`
+-- Table structure for table `list_upt`
 --
 
 CREATE TABLE `list_upt` (
@@ -95,7 +95,7 @@ CREATE TABLE `list_upt` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `list_upt`
+-- Dumping data for table `list_upt`
 --
 
 INSERT INTO `list_upt` (`id`, `kode_upt`, `nama_upt`) VALUES
@@ -119,7 +119,7 @@ INSERT INTO `list_upt` (`id`, `kode_upt`, `nama_upt`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `mitra`
+-- Table structure for table `mitra`
 --
 
 CREATE TABLE `mitra` (
@@ -130,7 +130,7 @@ CREATE TABLE `mitra` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `mitra`
+-- Dumping data for table `mitra`
 --
 
 INSERT INTO `mitra` (`id_mitra`, `nama_upt`, `nama_pel`, `tgl`) VALUES
@@ -143,7 +143,7 @@ INSERT INTO `mitra` (`id_mitra`, `nama_upt`, `nama_pel`, `tgl`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `pelunasan`
+-- Table structure for table `pelunasan`
 --
 
 CREATE TABLE `pelunasan` (
@@ -160,7 +160,7 @@ CREATE TABLE `pelunasan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `pelunasan`
+-- Dumping data for table `pelunasan`
 --
 
 INSERT INTO `pelunasan` (`id_pelunasan`, `nama_upt`, `nomor`, `nama_pel`, `kd_referensi`, `pelunasan`, `deposit`, `tgl_setor`, `status`, `tgl`) VALUES
@@ -172,177 +172,50 @@ INSERT INTO `pelunasan` (`id_pelunasan`, `nama_upt`, `nomor`, `nama_pel`, `kd_re
 -- --------------------------------------------------------
 
 --
--- Stand-in struktur untuk tampilan `periodepiutang`
--- (Lihat di bawah untuk tampilan aktual)
+-- Table structure for table `periodepiutang`
 --
+
 CREATE TABLE `periodepiutang` (
-`nomor` varchar(35)
-,`nama_pel` varchar(65)
-,`tgl` datetime
-,`Piutang` int(6)
-);
-
--- --------------------------------------------------------
-
---
--- Stand-in struktur untuk tampilan `piutang_blmlunas`
--- (Lihat di bawah untuk tampilan aktual)
---
-CREATE TABLE `piutang_blmlunas` (
-);
-
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `tbl_bisnis`
---
-
-CREATE TABLE `tbl_bisnis` (
-  `id_bisnis` int(20) NOT NULL,
-  `nama_upt` varchar(50) NOT NULL,
-  `bisnis` varchar(50) NOT NULL,
-  `tgl` datetime NOT NULL
+  `nomor` varchar(35) DEFAULT NULL,
+  `nama_pel` varchar(65) DEFAULT NULL,
+  `tgl` datetime DEFAULT NULL,
+  `Piutang` int(6) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data untuk tabel `tbl_bisnis`
---
-
-INSERT INTO `tbl_bisnis` (`id_bisnis`, `nama_upt`, `bisnis`, `tgl`) VALUES
-(1, 'Prabumulih', 'SURAT', '2020-11-24 15:20:34'),
-(2, 'Prabumulih', 'PAKET', '2020-11-24 15:20:34'),
-(3, 'Prabumulih', 'Inlogistik', '2020-11-24 15:20:56'),
-(4, 'Prabumulih', 'Kargo Pos', '2020-11-24 15:20:56');
-
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `user`
+-- Table structure for table `user`
 --
 
 CREATE TABLE `user` (
-  `id` int(10) NOT NULL,
-  `kd_user` varchar(15) NOT NULL,
-  `password` varchar(10) NOT NULL,
-  `level` varchar(50) NOT NULL,
-  `nama_upt` varchar(64) NOT NULL
+  `kd_user` varchar(6) NOT NULL,
+  `password` varchar(8) NOT NULL,
+  `level` varchar(255) NOT NULL,
+  `nama_upt` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `user`
+-- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`id`, `kd_user`, `password`, `level`, `nama_upt`) VALUES
-(1, 'OUPT01', '12345678', 'Admin Penjualan UPT Pbm', 'Pbm'),
-(2, 'MUPT01', '12345687', 'Manager Penjualan UPT Pbm', 'Pbm'),
-(3, 'KUPT01', '12346578', 'Ka UPT Pbm', 'Pbm'),
-(4, 'MReg3', '12345677', 'Manager Regional 3', 'Kantor Regional 3'),
-(5, 'DReg3', '12345688', 'Deputi Regional 3', 'Kantor Regional 3'),
-(6, 'KReg3', '12345667', 'Ka Regional 3', 'Kantor Regional 3');
-
--- --------------------------------------------------------
-
---
--- Struktur untuk view `periodepiutang`
---
-DROP TABLE IF EXISTS `periodepiutang`;
-
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `periodepiutang`  AS  select `invoice`.`nomor` AS `nomor`,`invoice`.`nama_pel` AS `nama_pel`,`invoice`.`tgl` AS `tgl`,period_diff(date_format(sysdate(),'%Y%m'),date_format(`invoice`.`tgl`,'%Y%m')) AS `Piutang` from `invoice` ;
-
--- --------------------------------------------------------
-
---
--- Struktur untuk view `piutang_blmlunas`
---
-DROP TABLE IF EXISTS `piutang_blmlunas`;
-
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `piutang_blmlunas`  AS  select `dt_piutang`.`id` AS `id`,`dt_piutang`.`nama_upt` AS `nama_upt`,`dt_piutang`.`bisnis` AS `bisnis`,`dt_piutang`.`nama_pel` AS `nama_pel`,`dt_piutang`.`prod` AS `prod`,`dt_piutang`.`bsu` AS `bsu`,`dt_piutang`.`total_piutang` AS `total_piutang`,`dt_piutang`.`pajak` AS `pajak`,`dt_piutang`.`saldo_akhir` AS `saldo_akhir`,`dt_piutang`.`sebulan` AS `sebulan`,`dt_piutang`.`duabulan` AS `duabulan`,`dt_piutang`.`tigabulan` AS `tigabulan`,`dt_piutang`.`tgl` AS `tgl`,`dt_piutang`.`validasi` AS `validasi` from `dt_piutang` ;
+INSERT INTO `user` (`kd_user`, `password`, `level`, `nama_upt`) VALUES
+('DReg3', '12345688', 'Deputi Regional 3', 'Kantor Regional 3'),
+('KReg3', '12345667', 'Ka Regional 3', 'Kantor Regional 3'),
+('KUPT01', '12346578', 'Ka UPT Pbm', 'Pbm'),
+('MReg3', '12345677', 'Manager Regional 3', 'Kantor Regional 3'),
+('MUPT01', '12345687', 'Manajer Penjualan UPT Pbm', 'Pbm'),
+('OUPT01', '12345678', 'Admin Penjualan UPT Pbm', 'Pbm');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indeks untuk tabel `dt_piutang`
---
-ALTER TABLE `dt_piutang`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indeks untuk tabel `invoice`
---
-ALTER TABLE `invoice`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indeks untuk tabel `list_upt`
---
-ALTER TABLE `list_upt`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indeks untuk tabel `mitra`
---
-ALTER TABLE `mitra`
-  ADD PRIMARY KEY (`id_mitra`);
-
---
--- Indeks untuk tabel `pelunasan`
---
-ALTER TABLE `pelunasan`
-  ADD PRIMARY KEY (`id_pelunasan`);
-
---
--- Indeks untuk tabel `tbl_bisnis`
---
-ALTER TABLE `tbl_bisnis`
-  ADD PRIMARY KEY (`id_bisnis`);
-
---
--- Indeks untuk tabel `user`
+-- Indexes for table `user`
 --
 ALTER TABLE `user`
-  ADD PRIMARY KEY (`id`);
-
---
--- AUTO_INCREMENT untuk tabel yang dibuang
---
-
---
--- AUTO_INCREMENT untuk tabel `dt_piutang`
---
-ALTER TABLE `dt_piutang`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=95;
-
---
--- AUTO_INCREMENT untuk tabel `invoice`
---
-ALTER TABLE `invoice`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=100;
-
---
--- AUTO_INCREMENT untuk tabel `list_upt`
---
-ALTER TABLE `list_upt`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
-
---
--- AUTO_INCREMENT untuk tabel `mitra`
---
-ALTER TABLE `mitra`
-  MODIFY `id_mitra` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
---
--- AUTO_INCREMENT untuk tabel `pelunasan`
---
-ALTER TABLE `pelunasan`
-  MODIFY `id_pelunasan` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
-
---
--- AUTO_INCREMENT untuk tabel `user`
---
-ALTER TABLE `user`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  ADD PRIMARY KEY (`kd_user`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
