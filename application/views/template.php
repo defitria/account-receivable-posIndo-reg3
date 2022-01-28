@@ -143,7 +143,7 @@
                         </li>
                     <?php } ?>
 
-                    <?php if ($this->session->userdata('level') == "Manager Penjualan UPT Pbm") { ?>
+                    <?php if ($this->session->userdata('level') == "Manajer Penjualan UPT Pbm") { ?>
                         <li>
                             <a href="<?= site_url('piutangprabu/invoice') ?>" class="">
                                 <i class="fa fa-barcode"></i>&nbsp;&nbsp;
@@ -169,12 +169,6 @@
                                     <a href="<?= site_url('rekapitulasi/timeline_pelunasan') ?>">
                                         <i class="fa fa-clipboard-check"></i>&nbsp;&nbsp;
                                         <b>Pengakuan Pelunasan</b>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="<?= site_url('rekapitulasi/laporanfilter') ?>">
-                                        <i class="fas fa-newspaper"></i>&nbsp;&nbsp;
-                                        <b>Laporan</b>
                                     </a>
                                 </li>
                             </ul>
